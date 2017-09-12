@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26906.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpToSql", "CSharpToSql\CSharpToSql.csproj", "{469499AC-D987-4917-A2EC-644B01B7B8E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCSharpToSql", "TestCSharpToSql\TestCSharpToSql.csproj", "{F1BC71A9-BB01-4ACA-8BF3-434CE3689A41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{469499AC-D987-4917-A2EC-644B01B7B8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469499AC-D987-4917-A2EC-644B01B7B8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469499AC-D987-4917-A2EC-644B01B7B8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1BC71A9-BB01-4ACA-8BF3-434CE3689A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1BC71A9-BB01-4ACA-8BF3-434CE3689A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1BC71A9-BB01-4ACA-8BF3-434CE3689A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1BC71A9-BB01-4ACA-8BF3-434CE3689A41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
