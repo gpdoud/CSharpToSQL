@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpToSql
 {
-    public class Class1
+    public class GetStudents
     {
     }
 }

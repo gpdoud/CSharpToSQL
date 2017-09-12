@@ -18,15 +18,35 @@ namespace TestCSharpToSql {
 				return;
 			}
 			Console.WriteLine("SQL connection opened successfully");
-			var sql = "select firstname, lastname, birthday, id from Student";
+			var sql = "select * from Student";
 			SqlCommand cmd = new SqlCommand(sql, connection);
 			SqlDataReader reader = cmd.ExecuteReader();
+			List<Student> students = new List<Student>();
 			while(reader.Read()) {
 				var id = reader.GetInt32(reader.GetOrdinal("Id"));
 				var firstName = reader.GetString(reader.GetOrdinal("FirstName"));
 				var lastName = reader.GetString(reader.GetOrdinal("LastName"));
 				var birthday = reader.GetDateTime(reader.GetOrdinal("Birthday"));
+				var address = reader.GetString(reader.GetOrdinal("Address"));
+
+				// set major id to null value before reading the database value.
+				var majorId = 0;
+				// check the value in the database
+				// if it is NOT NULL
+				if(!reader.GetValue(reader.GetOrdinal("MajorId")).Equals(DBNull.Value)) {
+					// then do this
+					majorId = reader.GetInt32(reader.GetOrdinal("MajorId"));
+				}
+
 				Console.WriteLine($"{id}, {firstName} {lastName}, born of {birthday}");
+				Student student = new Student();
+				student.Id = id;
+				student.FirstName = firstName;
+				student.LastName = lastName;
+				student.Birthday = birthday;
+				student.Address = address;
+				student.MajorId = majorId;
+				students.Add(student);
 			}
 			reader.Close();
 			connection.Close();
