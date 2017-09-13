@@ -21,16 +21,17 @@ namespace TestCSharpToSql {
 			var sql = "select * from Student";
 			SqlCommand cmd = new SqlCommand(sql, connection);
 			SqlDataReader reader = cmd.ExecuteReader();
-			List<Student> students = new List<Student>();
+			Dictionary<int, Student> students = new Dictionary<int, Student>();
 			while(reader.Read()) {
 				var id = reader.GetInt32(reader.GetOrdinal("Id"));
 				var firstName = reader.GetString(reader.GetOrdinal("FirstName"));
 				var lastName = reader.GetString(reader.GetOrdinal("LastName"));
 				var birthday = reader.GetDateTime(reader.GetOrdinal("Birthday"));
 				var address = reader.GetString(reader.GetOrdinal("Address"));
+				var city = reader.GetString(reader.GetOrdinal("City"));
 
 				// set major id to null value before reading the database value.
-				var majorId = 0;
+				var majorId = -1;
 				// check the value in the database
 				// if it is NOT NULL
 				if(!reader.GetValue(reader.GetOrdinal("MajorId")).Equals(DBNull.Value)) {
@@ -45,6 +46,7 @@ namespace TestCSharpToSql {
 				student.LastName = lastName;
 				student.Birthday = birthday;
 				student.Address = address;
+				student.City = city;
 				student.MajorId = majorId;
 				students.Add(student);
 			}
